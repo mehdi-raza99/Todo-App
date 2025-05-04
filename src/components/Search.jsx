@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Search = ({addTask}) => {
     const [task,setTask]=useState("");
@@ -7,9 +7,14 @@ const Search = ({addTask}) => {
     }
     function handleAdd(e){
         e.preventDefault();
-        addTask(task);
+        if(task.trim()) //Check if input exists or not! and trim extra spaces
+          addTask(task);
         setTask("")
     }
+
+
+    
+
   return (
     <form className='flex gap-2 mb-3' onSubmit={handleAdd}>
       <input
@@ -19,7 +24,7 @@ const Search = ({addTask}) => {
         onChange={handleChange}
         value={task}
         />
-        <button type='submit' className='bg-green-600 py-3 px-6 rounded-2xl text-lg cursor-pointer font-semibold' onClick={handleAdd}>Add</button>
+        <button type='submit' className='bg-green-600 py-3 px-6 rounded-2xl text-lg cursor-pointer font-bold' onClick={handleAdd}>Add</button>
         
 
     </form>
