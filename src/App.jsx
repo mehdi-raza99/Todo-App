@@ -30,7 +30,7 @@ function App() {
   
   useEffect(()=>{
     const allStoredTasks=JSON.parse(localStorage.getItem("todos"))
-    if(allStoredTasks.length > 0)
+    if(allStoredTasks && allStoredTasks.length > 0)
         setTaskList(allStoredTasks)
   },[])
   
